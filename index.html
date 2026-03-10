@@ -387,7 +387,7 @@ body{
 (二)犬、貓因死亡、疾病、健康情形不佳或抗拒接受美容服務，致難以繼續接受本契約之服務。前項情形，乙方應依第八條或第九條規定退還費用予甲方。但不得扣除手續費。
 
 第 十二 條 (甲方逾時接回犬、貓之處理方式)
-乙方完成犬、貓美容服務後，甲方應依雙方約定時間接回犬、貓。甲方接回犬、貓之時間已逾約定時間者，乙方之處理方式 如下：已同意收取逾時費，每小時新臺幣壹佰元。逾時未滿三十分鐘以半小時計費，逾時三十分鐘起開始計算逾時費，其超過部分，未滿三十分鐘者，以半小時計算；超過三十分鐘以上未滿一小時者，以一小時計算。甲方未於當日營業時間內，依雙方約定時間接回犬、貓者，乙方應通知甲方或其緊急聯絡人。
+乙方完成犬、貓美容服務後，甲方應依雙方約定時間接回犬、貓。甲方接回犬、貓之時間已逾約定時間者，乙方之處理方式 如下：已同意收取逾時費，每小時新臺幣壹佰元。逾時未滿三十分鐘以半小時計算，逾時三十分鐘起開始計算逾時費，其超過部分，未滿三十分鐘者，以半小時計算；超過三十分鐘以上未滿一小時者，以一小時計算。甲方未於當日營業時間內，依雙方約定時間接回犬、貓者，乙方應通知甲方或其緊急聯絡人。
 經通知仍未接回，或無法聯繫時，乙方得於善盡照護義務之前提下，持續代為照護犬、貓，並得向甲方收取逾時照護費。前項逾時照護費之計算方式如下：每小時新臺幣壹佰元；未滿三十分鐘不計費，逾三十分鐘起以一小時計算。前述逾時照護費，每日最高不逾該次美容服務費用之三倍。甲方逾三日未接回犬、貓者，乙方應通知動物保護主管機關依動物保護法相關規定處理。
   
 第 十三 條 (不可歸責於甲方，未接回犬、貓之處理方式) 
@@ -470,14 +470,6 @@ ______________________________________________。
       <div class="label">寵物年紀</div>
       <input id="petWeight" class="input" inputmode="decimal" placeholder="例：5歲">
 
-      <div class="label">寵物性別</div>
-     <div class="checkRow">
-      <label><input type="checkbox" name="disease" value="男生"> 男生</label>
-      <label><input type="checkbox" name="disease" value="女生"> 女生</label>
-
-      <div class="label">是否植入晶片</div>
-      <input id="petName" class="input" placeholder="無/有(填寫晶片號碼):">
-
       <div class="label">審閱 / 簽署日期</div>
       <input type="date" class="input" id="signDate">
     </div>
@@ -502,7 +494,7 @@ ______________________________________________。
 (function(){
 
   const LIFF_ID = "2009235161-G62j3DKf";
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwm5ayLc1819HnNNJop2TYOx3PGZnSJZcuQpxEBnxhqyBeSUYmT1ds4AN8On5817g49/exec";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwRtZDEs4XiahWyrd34TyvaNDqgu4B_aMSxozaC4R3vebDCi2AYE7iWvvtO_Ys7A4Cu/exec";
   const SHARED_SECRET = "cai87870128";
 
   const canvas = document.getElementById("sig");
@@ -519,7 +511,7 @@ ______________________________________________。
   const ownerAddress = document.getElementById("ownerAddress");
   const petName = document.getElementById("petName");
   const petBreed = document.getElementById("petBreed");
-  const petWeight = document.getElementById("petYears");
+  const petWeight = document.getElementById("petWeight");
   const signDate = document.getElementById("signDate");
 
   const afterSendModal = document.getElementById("afterSendModal");
@@ -696,7 +688,7 @@ ______________________________________________。
       ownerAddress: requireValue(ownerAddress, "通訊地址"),
       petName:      requireValue(petName, "寵物姓名"),
       petBreed:     requireValue(petBreed, "寵物品種"),
-      petWeight:    requireValue(petYears, "寵物年紀"),
+      petWeight:    requireValue(petWeight, "寵物年紀"),
       signDate:     requireValue(signDate, "簽署日期"),
     };
     if(Object.values(data).some(v => v === null)){
@@ -733,7 +725,7 @@ Email：${data.ownerEmail}
 通訊地址：${data.ownerAddress}
 寵物名字：${data.petName}
 品種：${data.petBreed}
-寵物年紀：${data.petYears}
+寵物年紀：${data.petWeight}
 審閱/簽署日期：${data.signDate}
 
 （簽署資料與簽名已完成，並已自動寄送副本至您的信箱。
